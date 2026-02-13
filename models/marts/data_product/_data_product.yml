@@ -7,11 +7,11 @@ models:
   data_tests:
     - is_empty:
         config:
-          severity: warn
+          severity: error
 - name: fct_data_product_count_featured_models
   description: >
     List all data products where the number of featured models is greater than 5
   data_tests:
     - is_empty:
         config:
-          severity: warn
+          severity: error
