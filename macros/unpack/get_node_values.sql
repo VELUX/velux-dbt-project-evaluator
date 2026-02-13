@@ -36,6 +36,7 @@
                 node.columns.values() | list | selectattr('description') | list | length,
                 wrap_string_with_quotes(node.database),
                 wrap_string_with_quotes(node.schema),
+                wrap_string_with_quotes(node.config.schema),
                 wrap_string_with_quotes(node.package_name),
                 wrap_string_with_quotes(node.alias),
                 "cast(" ~ dbt_project_evaluator.is_not_empty_string(node.description) | trim ~ " as " ~ dbt.type_boolean() ~ ")",
