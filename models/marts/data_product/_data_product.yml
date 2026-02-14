@@ -15,3 +15,19 @@ models:
     - is_empty:
         config:
           severity: error
+- name: fct_data_product_schema
+  description: >
+    List all data products where name of the data product does not match the schema of the models in the data product
+  data_tests:
+    - is_empty:
+        config:
+          severity: error
+- name: fct_data_product_folder_models
+  description: >
+    List all data products where models of the data product are in different folders then the data product itself
+  data_tests:
+    - is_empty:
+        config:
+          severity: error
+
+          
