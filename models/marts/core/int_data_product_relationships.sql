@@ -38,7 +38,8 @@ nodes_cte as (
 
 joined_cte as (
 
-    select 
+    select
+    
         data_product_cte.name,
         data_product_cte.folder_name as data_product_folder_name,
         data_product_cte.folder_path as data_product_folder_path,

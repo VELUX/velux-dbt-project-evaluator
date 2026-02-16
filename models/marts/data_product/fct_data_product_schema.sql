@@ -5,4 +5,6 @@ select
     name as change_schema_to
 
 from {{ ref('int_data_product_relationships') }}
-where name <> config_schema
+where lower(name) <> lower(config_schema)
+
+{{ filter_exceptions() }}
