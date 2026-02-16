@@ -33,6 +33,7 @@ select
     cast(0 as {{ dbt.type_int() }}) as total_described_columns,
     cast(null as {{ dbt_project_evaluator.type_string_dpe() }}) as database,
     cast(null as {{ dbt_project_evaluator.type_string_dpe() }}) as schema,
+    cast(null as {{ dbt_project_evaluator.type_string_dpe() }}) as config_schema,
     cast(null as {{ dbt_project_evaluator.type_string_dpe() }}) as package_name,
     cast(null as {{ dbt_project_evaluator.type_string_dpe() }}) as alias,
     cast(True as {{ dbt.type_boolean() }}) as is_described,
