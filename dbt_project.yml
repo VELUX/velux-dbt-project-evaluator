@@ -39,6 +39,30 @@ models:
           +materialized: "{{ 'table' if target.type in ['bigquery', 'redshift', 'databricks', 'clickhouse'] else 'view' }}"
       dag:
         +materialized: table
+        +enabled: true
+        fct_root_models:
+          # The current logic of this rule does not work correctly when referencing across projects
+          +enabled: false
+      governance:
+        +enabled: true
+        # The access is handled by the macro that creates a data product.
+        # Any violations of this rule is regarding the old way of sharing model across domains.
+        # and should be cleaned up when a data product is created.
+        fct_exposures_dependent_on_private_models:
+          +enabled: false
+        # Currently, we are not working with contracts on public models.
+        fct_public_models_without_contract:
+          +enabled: false
+      documentation:
+        +enabled: true
+        fct_documentation_coverage:
+          +enabled: false
+        fct_undocumented_source_tables:
+          +enabled: false
+      tests:
+        +enabled: true
+        fct_test_coverage:
+          +enabled: false
     staging:
       graph:
         stg_node_relationships:
@@ -51,6 +75,9 @@ models:
           # required for Redshift because listagg runs only on tables
           +materialized: "{{ 'table' if target.type == 'redshift' else 'view' }}"
 
+seeds:
+  dbt_project_evaluator_exceptions:
+    +schema: dbt_project_evaluator
 
 vars:
 
@@ -71,18 +98,15 @@ vars:
   # -- Naming conventions variables --
   # to add a new "model type", update the variable model_types 
   # and create new variables with the names <model_type>_folder_name and/or <model_type>_prefixes 
-  model_types: ['base', 'staging', 'intermediate', 'marts', 'other']
+  model_types: ['staging', 'intermediate', 'marts', 'seed']
 
-  base_folder_name: 'base'
-  staging_folder_name: 'staging'
-  intermediate_folder_name: 'intermediate'
   marts_folder_name: 'marts'
-  
-  base_prefixes: ['base_']
-  staging_prefixes: ['stg_']
-  intermediate_prefixes: ['int_']
-  marts_prefixes: ['fct_', 'dim_']
-  other_prefixes: ['rpt_']
+  marts_prefixes: ['rpt_']
+  staging_folder_name: 'staging'
+  staging_prefixes: ['stg_', 'base_']
+  intermediate_folder_name: 'intermediate'
+  intermediate_prefixes: ['int_', 'proc_']
+  exclude_packages: ["all"]
 
   # -- Performance variables --
   chained_views_threshold: "{{ 5 if target.type not in ['athena', 'trino'] else 4 }}"
