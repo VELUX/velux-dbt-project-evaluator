@@ -1,10 +1,16 @@
-select
+with test_cte as (
 
-    name,
-    folder_name,
-    name as change_folder_name_to
+    select
 
-from {{ ref('stg_data_product') }}
-where lower(name) <> lower(folder_name)
+        name,
+        folder_name,
+        name as change_folder_name_to
+
+    from {{ ref('stg_data_product') }}
+    where lower(name) <> lower(folder_name)
+
+)
+
+select * from test_cte
 
 {{ filter_exceptions() }}
