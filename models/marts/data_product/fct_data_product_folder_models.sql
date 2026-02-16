@@ -2,7 +2,7 @@ with test_cte as (
 
     select
 
-        node_unique_id as model,
+        model_name,,
         node_folder_path as model_folder_path,
         data_product_folder_path as change_folder_path_to
 

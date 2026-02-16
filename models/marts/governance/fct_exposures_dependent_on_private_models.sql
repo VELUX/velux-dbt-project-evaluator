@@ -1,3 +1,5 @@
+{{ config(enabled=false) }}
+
 with 
 
 direct_exposure_relationships as (

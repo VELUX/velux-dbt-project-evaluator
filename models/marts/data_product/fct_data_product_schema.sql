@@ -2,7 +2,7 @@ with test_cte as (
 
     select
 
-        node_unique_id as model,
+        node_name as model,
         config_schema as model_schema,
         name as change_schema_to
 
