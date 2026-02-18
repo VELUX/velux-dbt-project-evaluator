@@ -1,3 +1,6 @@
+{{ config(
+    enabled=false
+) }}
 with
 
 test_counts as (

@@ -1,3 +1,8 @@
+{{ config(
+    enabled=false
+) }}
+-- Currently, we are not working with contracts on public models.
+
 with 
 
 all_resources as (

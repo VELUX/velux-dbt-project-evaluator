@@ -1,3 +1,9 @@
+{{ config(enabled=false) }}
+
+-- The access is handled by the macro that creates a data product.
+-- Any violations of this rule is regarding the old way of sharing model across domains.
+-- and should be cleaned up when a data product is created.
+
 with 
 
 direct_exposure_relationships as (

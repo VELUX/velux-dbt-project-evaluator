@@ -1,3 +1,8 @@
+{{ config(
+    enabled=false
+) }}
+-- The current logic of this rule does not work correctly when referencing across projects
+
 -- this model finds cases where a model has 0 direct parents, likely due to a lack of source or ref function
 
 {% if execute %}
