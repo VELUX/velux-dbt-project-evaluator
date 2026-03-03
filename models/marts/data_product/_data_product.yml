@@ -38,7 +38,7 @@ models:
             severity: error
   - name: fct_data_product_featured_models
     description: >
-      Checks whether the featured models of the data product exists
+      Checks whether the featured models are present in the dependent models of the data product config
     data_tests:
       - is_empty:
           config:
