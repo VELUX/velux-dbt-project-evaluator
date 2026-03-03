@@ -44,7 +44,6 @@ joined_cte as (
         data_product_cte.name,
         data_product_cte.folder_name as data_product_folder_name,
         data_product_cte.folder_path as data_product_folder_path,
-        data_product_cte.unique_id as data_product_node_unique_id,
         nodes_cte.unique_id as node_unique_id,
         nodes_cte.name as model_name,
         nodes_cte.config_schema,

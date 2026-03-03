@@ -1,3 +1,8 @@
+{{ config(
+    enabled=false
+) }}
+-- this is currently not a hard requirement
+
 with 
 
 direct_exposure_relationships as (

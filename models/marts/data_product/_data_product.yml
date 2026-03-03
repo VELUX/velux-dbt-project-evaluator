@@ -1,33 +1,45 @@
 version: 2
 
 models:
-- name: fct_data_product_folder_name
-  description: >
-    List all data products where the data product name does not match the folder name
-  data_tests:
-    - is_empty:
-        config:
-          severity: error
-- name: fct_data_product_count_featured_models
-  description: >
-    List all data products where the number of featured models is greater than 5
-  data_tests:
-    - is_empty:
-        config:
-          severity: error
-- name: fct_data_product_schema
-  description: >
-    List all data products where name of the data product does not match the schema of the models in the data product
-  data_tests:
-    - is_empty:
-        config:
-          severity: error
-- name: fct_data_product_folder_models
-  description: >
-    List all data products where models of the data product are in different folders then the data product itself
-  data_tests:
-    - is_empty:
-        config:
-          severity: error
-
-          
+  - name: fct_data_product_folder_name
+    description: >
+      List all data products where the data product name does not match the folder name
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
+  - name: fct_data_product_count_featured_models
+    description: >
+      List all data products where the number of featured models is greater than 5
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
+  - name: fct_data_product_schema
+    description: >
+      List all data products where name of the data product does not match the schema of the models in the data product
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
+  - name: fct_data_product_folder_models
+    description: >
+      List all data products where models of the data product are in different folders then the data product itself
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
+  - name: fct_data_product_email
+    description: >
+      Tests whether the email address of the owner is valid email address and belongs to the VELUX domain. A data product owner should be an internal employee
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
+  - name: fct_data_product_featured_models
+    description: >
+      Checks whether the featured models of the data product exists
+    data_tests:
+      - is_empty:
+          config:
+            severity: error
