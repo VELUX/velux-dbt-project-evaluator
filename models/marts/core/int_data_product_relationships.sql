@@ -6,7 +6,7 @@ with data_product_cte as (
         name,
         folder_name,
         folder_path,
-        feautured_models
+        featured_models
     
     from {{ ref('stg_data_product') }}
 
@@ -45,7 +45,7 @@ joined_cte as (
         data_product_cte.name,
         data_product_cte.folder_name as data_product_folder_name,
         data_product_cte.folder_path as data_product_folder_path,
-        data_product_cte.feautured_models as data_product_featured_models,
+        data_product_cte.featured_models as data_product_featured_models,
         nodes_cte.unique_id as node_unique_id,
         nodes_cte.name as model_name,
         nodes_cte.config_schema,
