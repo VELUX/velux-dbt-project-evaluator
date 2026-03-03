@@ -2,6 +2,7 @@ with test_cte as (
 
     select
     
+        name as data_product
         owner_email,
         owner_email ilike '%@VELUX.COM' as is_velux_email_address
     

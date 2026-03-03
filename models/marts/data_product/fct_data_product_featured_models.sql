@@ -3,7 +3,7 @@ with data_product_relationships_cte as (
     select
 
         name,
-        data_product_featured_models, -- added
+        data_product_featured_models,
         node_unique_id
 
     from {{ ref('int_data_product_relationships') }}
@@ -53,7 +53,7 @@ final_cte as (
 
     select
 
-        name,
+        name as data_product,
         featured_model_name as featured_model_not_found
 
     from joined_cte
