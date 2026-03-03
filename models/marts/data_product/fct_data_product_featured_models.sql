@@ -54,8 +54,7 @@ final_cte as (
     select
 
         name,
-        featured_model_name,
-        model_name
+        featured_model_name as featured_model_not_found
 
     from joined_cte
     where model_name is null
