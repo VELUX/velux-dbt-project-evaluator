@@ -4,10 +4,10 @@ with test_cte as (
     
         name as data_product,
         owner_email,
-        owner_email ilike '%@VELUX.COM' as is_velux_email_address
+        owner_email ilike '%@VELUX.COM' as is_correct_velux_email_address
     
     from {{ ref('stg_data_product') }}
-    where is_velux_email_address = false
+    where is_correct_velux_email_address = false
 
 )
 
